@@ -1,5 +1,6 @@
 # [Fairness in Focus: A tale of two worlds](https://anusha-raju.github.io/Utopia/)
 Project Website: [UTOPIA](https://anusha-raju.github.io/Utopia/)<br>
+
 Author: [Anusha Umashankar](https://github.com/Anusha-raju)
 
 Created on : October 24th, 2024
