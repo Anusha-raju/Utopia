@@ -427,7 +427,7 @@ Alternate hypothesis: The variables gender and education are not independent
 
 
 ## Final thoughts <a name="Finalthoughts"></a>
-# 
+
 <br>A realistic utopia as quoted by [isocracy.org](https://isocracy.org/content/three-visions-realist-utopia) are models for a Great Society, and any realist utopian model will share three essential characteristics.
 
 
