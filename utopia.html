@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fairness in Focus: A Tale of Two Worlds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #000080;
+            padding-top: 80px; /* Add padding to the top of the title */
+        }
+
+        .toc {
+            display: flex;
+            justify-content: center;
+            background-color: #080336;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            position: fixed; /* Change this to fixed */
+            top: 0; /* Position it at the top */
+            left: 0; /* Align it to the left */
+            right: 0; /* Stretch it to the right */
+            z-index: 1000; /* Ensure it is above other elements */
+        }
+        /* .toc {
+            display: flex;
+            justify-content: center;
+            background-color: #2980b9;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            position: relative;
+        } */
+        .toc > div {
+            position: relative;
+            margin: 0 10px;
+        }
+        .toc a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .toc a:hover {
+            background: #3498db;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #2980b9;
+            z-index: 1;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 10px;
+        }
+        .toc > div:hover .dropdown {
+            display: block;
+        }
+        .content {
+            max-width: 800px;
+            margin: 100px auto 0; /* Increase the top margin */
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        /* .content {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        } */
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        ul {
+            list-style-type: square;
+            margin: 10px 0 20px 20px;
+        }
+        h2, h3, h4 {
+            color: #052133;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        
+    </style>
+</head>
+<body>
+
+<h1>Fairness in Focus: A Tale of Two Worlds</h1>
+<center>
+<p>Author: <a href="https://github.com/Anusha-raju">Anusha Umashankar</a></p>
+<p>Created on: October 24th, 2024</p>
+</center>
+
+<div class="toc">
+
+    <div>
+        <a href="#objective">Objective</a>
+    </div>
+    <div>
+        <a href="#data">Data</a>
+        <div class="dropdown">
+            <a href="#datasource">Data source</a>
+            <a href="#datadictionary">Data dictionary</a>
+        </div>
+    </div>
+    <div>
+        <a href="#world1">WORLD1</a>
+        <div class="dropdown">
+            <a href="#dataprofiling">Data Profiling</a>
+            <a href="#datavisualization">Data Visualization & Hypothesis Testing</a>
+            <a href="#interpretationonWorld1">Interpretation on World1</a>
+        </div>
+    </div>
+    
+    <div>
+        <a href="#world2">WORLD2</a>
+        <div class="dropdown">
+            <a href="#dataprofiling2">Data Profiling</a>
+            <a href="#datavisualization2">Data Visualization & Hypothesis testing</a>
+            <a href="#interpretationonWorld2">Interpretation on World2</a>
+        </div>
+    </div>
+
+    <div>
+        <a href="#Finalthoughts">Final Thoughts</a>
+    </div>
+
+    <div>
+        <a href="#projectresources">Project Resources</a>
+    </div>
+
+    <div>
+        <a href="#pythonlibs">Python Libraries Used</a>
+    </div>
+</div>
+
+<div class="content">
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/utopia.jpg" alt="Utopia">
+
+    <h3>Objective <a name="objective"></a></h3>
+    <p>To analyze if the two worlds are fair, or close to a utopia.</p>
+
+    <h2>Data <a name="data"></a></h2>
+    <h3>Data Source <a name="datasource"></a></h3>
+    <p>The data is provided in CSV file format (world1.csv and world2.csv) and was created for the DATS6103 Introduction to Data Mining course, taught by Professor Divya Pandove Narula.</p>
+
+    <h3>Data Dictionary <a name="datadictionary"></a></h3>
+    <p>Both the worlds have the below data dictionary:</p>
+    <ul>
+        <li>age00: The age at the time of creation. This is only the population from age 30-60.</li>
+        <li>education: Years of education they have had. Education assumed to have stopped and is a static data column.</li>
+        <li>marital: 0-never married, 1-married, 2-divorced, 3-widowed.</li>
+        <li>gender: 0-female, 1-male (for simplicity).</li>
+        <li>ethnic: 0, 1, 2 (just made up).</li>
+        <li>income00: Annual income at the time of creation.</li>
+        <li>industry: (ordered with increasing average annual salary, according to government data).
+            <ol>
+                <li>Leisure and Hospitality</li>
+                <li>Retail</li>
+                <li>Education</li>
+                <li>Health</li>
+                <li>Construction</li>
+                <li>Manufacturing</li>
+                <li>Professional and Business</li>
+                <li>Finance</li>
+            </ol>
+        </li>
+    </ul>
+
+    <h2>WORLD1 <a name="world1"></a></h2>
+
+    <h3>EDA on World1 <a name="edaonworld1"></a></h3>
+
+    <h4>Data Profiling <a name="dataprofiling"></a></h4>
+    <p>World1 dataset</p>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world1-head.png" alt="world1.head()">
+    <p>The above image shows the first five records in World1.</p><p> The World1 dataset has no missing values and the dimensions are 24000 rows across 7 columns.</p>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world1%20missing%20values.png" alt="world1.describe()">
+
+    <h4>Summary of Qualitative Variables of World1</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/categorical%20summary%201.png" alt="Summary of qualitative variables of world1">
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/categorical%20summary%202.png" alt="Summary of qualitative variables of world1">
+
+    <h4>Summary of Quantitative Variables of World1</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world1%20quantitaive%20summary.png" alt="Summary of quantitative of world1">
+
+    <p><strong>Remarks:</strong> Since the median is less than the mean for income in World1, it indicates that the data distribution is skewed to the right (positively skewed).</p>
+
+    <h3>Data Visualization & Hypothesis Testing <a name="datavisualization"></a></h3>
+
+    <h4>Plot: Income Distribution in World1</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world1%20income.png" alt="Income in world1">
+    <p><strong>Observation:</strong> As remarked, the distribution of income for World1 is <em>right</em> skewed.</p>
+
+    <h4>Plot: Distribution of Years of Education in World1</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world1%20education.png" alt="Education distribution image">
+    <p>The shape of the distribution of education for World1 is Multimodal distribution.</p>
+
+    <h4>Plot: Relationship Between Income and Education Levels in World1</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/income%20education%20world1.png" alt="Income and Education Levels in world1">
+    <p><li>There seems to be no significant influence of education on income in World1.</li><li> The correlation coefficient between education and income in World1: -5.1988070239674995e-05, which also implies that there isn't significant correlation between education and income in World1.</li></p>
+
+    <h4>Plot: Relationship Between Income and Marital Status in World1</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/income%20marital%20status%20world1.png" alt="Income and marital status world1">
+    <p>Seems to be like there is no significant difference in average income among the different marital groups in world1.</p>
+
+    <h4>Plot: Correlation Matrix to Identify the Interdependency Among the Variables in World1.</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/correlation%20matrix%20world1.png" alt="Correlation matrix world1">
+    <p><strong>Observations:</strong></p>
+    <ul>
+        <li>A strong positive correlation exists between income and industry.</li>
+        <li>A considerable correlation exists between income and both ethnicity and gender.</li>
+        <li>There is a correlation between industry and ethnic and industry and gender.</li>
+    </ul>
+
+    <h4>Plot: Average Income by Industry and Gender in World1</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/income%20industry%20gender%20world1.png" alt="Average income by industry and gender in world1">
+
+    <p>Remarks:</p>
+    <ul>
+        <li>There are significant differences in income based on both industry and gender in world1.
+        </li>
+        <li>The distribution of genders across different industries is unequal in world1, indicating that certain industries have a higher representation of one gender over the other. This disparity suggests potential biases or systemic factors influencing gender representation in various fields in world1.
+        </li>
+    </ul>
+    
+  
+        <h4><strong>ANOVA</strong> test to check if there is difference in income based on gender in world1.</h4>
+        <p>Using a significance level of 0.05.</p>
+        <p>Stating the Hypothesis:</p>
+        <ul>
+        <li><p>Null hypothesis: There is no difference in income based on gender.</p></li>
+        <li><p>Alternate hypothesis: There is difference in income based on gender.</p></li>
+        </ul>
+        <p>The obtained test results are -> F-statistic: 923.1415737034732, P-value: 5.355760965843564e-199</p>
+        <p><strong>Conclusion:</strong> Since the p-value is much less than the significance level of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on gender in world1.</p>
+    
+        <h4><strong>ANOVA</strong> test to check if there is difference in income based on industry in world1.</h4>
+        <p>Using a significance level of 0.05.</p>
+        <p>Stating the Hypothesis:</p>
+        <ul>
+        <li><p>Null hypothesis: There is no difference in income based on industry.</p></li>
+        <li><p>Alternate hypothesis: There is difference in income based on industry.</p></li>
+        </ul>
+        <p>The obtained test results are -> F-statistic: 19091.648128224577, P-value: 0.0</p>
+        <p><strong>Conclusion:</strong> Since the p-value is much less than the significance level of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on industry in world1.</p>
+    
+        <h4>Plot: Average income by ethnic in world1</h4>
+        <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/income%20by%20ethnicity%20world1.png" alt="Average income by ethnic in world1">
+        <p><strong>Remark:</strong> There seems to be difference in income based on ethnicity in world1.</p>
+    
+        <h4><strong>ANOVA</strong> test to check if there is difference in income based on ethnic in world1.</h4>
+        <p>Using a significance level of 0.05.</p>
+        <p>Stating the Hypothesis:</p>
+        <ul>
+        <li><p>Null hypothesis: There is no difference in income based on ethnic category.</p></li>
+        <li><p>Alternate hypothesis: There is difference in income based on ethnic category.</p></li>
+        </ul>
+        <p>The obtained test results are -> F-statistic: 1125.691934385774, P-value: 0.0</p>
+        <p><strong>Conclusion:</strong> Since the p-value is significantly less than the alpha value of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on ethnicity in world1.</p>
+    
+        <h4>Post hoc tests</h4>
+        <p>Performed Tukey's HSD test</p>
+        <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/tuskey%20result%20world1.png" alt="Tukey's HSD test world1">
+    
+        <p><strong>In summary:</strong> All comparisons show significant differences in mean income between the ethnic groups analyzed, indicating that ethnicity does have an impact on income in world1.</p>
+    
+        <h4><strong>Examined the differences in years of education by gender in world1.</strong></h4>
+        <p><strong>Chi-squared test between gender and education in world1.</strong></p>
+        <p>Using a significance level of 0.05.</p>
+        <p>Stating the Hypothesis:</p>
+        <ul>
+        <li><p>Null hypothesis: The variables gender and education are independent.</p></li>
+        <li><p>Alternate hypothesis: The variables gender and education are not independent.</p></li>
+        </ul>
+        <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/chisuare%20world1.png" alt="Chi-squared test">
+    
+        <p><strong>Conclusion:</strong> Since the p-value is greater than the significance level of 0.05, we fail to reject the null hypothesis. This suggests that there is not enough evidence to conclude that gender has an effect on education levels in world1, meaning that any observed differences in education levels between genders in world1 could likely be due to random chance rather than a systematic relationship.</p>
+    
+    
+    
+
+
+
+    <h3>Interpretation on World1 <a name="interpretationonWorld1"></a></h3>
+    <p>1. Since the income histogram is right skewed, it indicates that a small number of individuals earn significantly more than the rest, which may suggest inequality.</p>
+    
+    <p>2. The plots and ANOVA tests suggest that the annual income depends on gender, ethnicity, and industry in world1, indicating systemic inequities.</p>
+    
+    <p>3. The plot of average income by industry and gender also suggests potential biases influencing gender representation in various industries.</p>
+
+    <h2>WORLD2 <a name="world2"></a></h2>
+
+    <h3>EDA on World2 <a name="edaonworld2"></a></h3>
+
+    <h4>Data Profiling <a name="dataprofiling2"></a></h4>
+    <p>World2 dataset</p>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world2-head.png" alt="world2.head()">
+    <p>The above image shows the first five records in World2.</p><p> The World2 dataset has no missing values and the dimensions are 24000 rows across 7 columns.</p>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world2%20missing%20values.png" alt="world2.describe()">
+
+    <h4>Summary of Qualitative Variables of World2</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/categorical%20summary%2021.png" alt="Summary of qualitative variables of world2">
+
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/categorical%20summary%2022.png" alt="Summary of qualitative variables of world2">
+
+    <h4>Summary of Quantitative Variables of World2</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world2%20quantitaive%20summary.png" alt="Summary of quantitative variables of world2">
+
+    <p><strong>Remarks:</strong> Since the median is less than the mean for income in World2, it indicates that the data distribution is skewed to the right (positively skewed).</p>
+
+    <h3>Data Visualization & Hypothesis Testing <a name="datavisualization2"></a></h3>
+
+    <h4>Plot: Income Distribution in World2</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/world2%20income.png" alt="Income in world2">
+    <p><strong>Observation:</strong> As remarked, the distribution of income for World2 is <em>right</em> skewed.</p>
+
+    <h4>Plot: Distribution of Years of Education in World2</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/education%20world2.png" alt="Education distribution in world2">
+    <p>The shape of the distribution of education for World2 is Multimodal distribution.</p>
+
+    <h4>Plot: Correlation Matrix to Identify the Interdependency Among the Variables in World2.</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/correlation%20matrix%20world2.png" alt="correlation matrix world2">
+    <p><strong>Observations:</strong></p>
+    <ul>
+        <li>A strong positive correlation exists between income and industry.</li>
+    </ul>
+
+    <h4>Plot: Average Income by Industry and Gender in World2</h4>
+    <img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/average%20income%20by%20industry%20and%20gender(world2).png" alt="Average income by industry and gender in world2">
+    <p>There are significant differences in income based on industry in world2.</p>
+
+    <h4><strong>ANOVA</strong> test to check if there is difference in income based on industry in world2.</h4>
+<p>Using a significance level of 0.05.</p>
+
+<p>Stating the Hypothesis:</p>
+<ul>
+    <li>Null hypothesis: There is no difference in income based on industry.</li>
+    <li>Alternate hypothesis: There is difference in income based on industry.</li>
+</ul>
+
+<p>The obtained test results are -> F-statistic: 18810.332110998344, P-value: 0.0</p>
+
+<p class="conclusion">Conclusion: Since the p-value is much less than the significance level of 0.05, we have evidence to reject the null hypothesis. This suggests that there is difference in income based on industry in world2.</p>
+
+<h4>Plot: Average income by ethnic in world2</h4>
+<img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/Average%20income%20by%20ethnic%20world2.png" alt="Average income by ethnic">
+
+<p class="conclusion">Remark: There seems to be no significant difference in income based on ethnicity.</p>
+
+<h4><strong>ANOVA</strong> test to check if there is difference in income based on ethnic in world2.</h4>
+<p>Using a significance level of 0.05.</p>
+
+<p>Stating the Hypothesis:</p>
+<ul>
+    <li>Null hypothesis: There is no difference in income based on ethnic category.</li>
+    <li>Alternate hypothesis: There is difference in income based on ethnic category.</li>
+</ul>
+
+<p>The obtained test results are -> F-statistic: 0.3428483735431711, P-value: 0.7097492961501475</p>
+
+<p class="conclusion">Conclusion: Since the p-value is significantly high than the alpha value of 0.05, we fail to reject the null hypothesis. This suggests that there is no difference in income based on ethnicity in world2.</p>
+
+<h4>Examined the differences in years of education by gender in world2.</h4>
+
+<p><strong>Chi-squared test between gender and education in world2.</strong></p>
+<p>Using a significance level of 0.05.</p>
+
+<p>Stating the Hypothesis:</p>
+<ul>
+    <li>Null hypothesis: The variables gender and education are independent</li>
+    <li>Alternate hypothesis: The variables gender and education are not independent</li>
+</ul>
+
+<img src="https://raw.githubusercontent.com/Anusha-raju/Utopia/main/images/chi%20square%20world2.png" alt="Chi-squared test">
+
+<p class="conclusion">Conclusion: Since the p-value is greater than the significance level of 0.05, we fail to reject the null hypothesis. This suggests that there is not enough evidence to conclude that gender has an effect on education levels in world2.</p>
+
+
+    <h3>Interpretation on World2 <a name="interpretationonWorld2"></a></h3>
+    <p>1. Since the income histogram is right skewed, it indicates that a small number of individuals earn significantly more than the rest.</p>
+
+    <p>2. The plots and ANOVA tests suggest that the annual income does not depend on gender and ethnicity in world2, indicating systemic equality.</p>
+    
+    <p>3. The plots also suggest that there is a difference in income based on industry.</p>
+    
+    <h2>Final Thoughts <a name="Finalthoughts"></a></h2>
+    <p>A realistic utopia, as quoted by <a href="https://isocracy.org/content/three-visions-realist-utopia">isocracy.org</a>, are models for a Great Society, and any realist utopian model will share three essential characteristics.</p>
+    
+    <p>The basic structure is:</p>
+    <ol>
+        <li>Entail liberal democracy or a republican form of government, in which people have a say in the matters that affect their lives.</li>
+        <li>Guard against the extremes of inequality so that concentrations of wealth cannot be used to exploit the less wealthy or to buy politicians.</li>
+        <li>Ensure that everyone has access to the necessities of life such as food, shelter, healthcare, etc.</li>
+    </ol>
+    
+    <p>In both the worlds:</p>
+    <ul>
+        <li>The variables defining demographics are age, gender, marital status, and ethnicity.</li>
+        <li>The variables defining socioeconomic status are education, income, and industry.</li>
+    </ul>
+    
+    <p>Based on the interpretations of world1, there is an inequality in income and there is a potential bias influencing gender representations in various industries, and a difference in income based on ethnicity and gender which suggests that <strong>world1 is not fair</strong> on both demographics and socioeconomic status and is not close to a utopia.</p>
+    
+    <p>The analysis of world2 indicates that income is skewed due to variations across industries, while gender and ethnicity do not appear to influence annual income.</p>
+    
+    <p>In my view, different income levels across industries can still align with a utopian model due to the following reasons:</p>
+    <ul>
+        <li>Value-Based Income: In a utopia, income could be based on the value and societal contribution of different industries.</li>
+        <li>Equity Over Equality: A utopian model might emphasize equity rather than strict equality.</li>
+    </ul>
+    
+    <p>Hence, I fail to infer that world2 is unfair and can suggest that world2 is close to a utopia.</p>
+    
+    <h2>Project Resources <a name="projectresources"></a></h2>
+    <ul>
+        <li>The code is in <a href="https://github.com/Anusha-raju/Utopia/blob/main/midterm_Utopia.py">Utopia.py</a></li>
+        <li>The world1 data is in <a href="https://github.com/Anusha-raju/Utopia/blob/main/world1.csv">World1.csv</a></li>
+        <li>The world2 data is in <a href="https://github.com/Anusha-raju/Utopia/blob/main/world2.csv">World2.csv</a></li>
+        <li>The project link is <a href="https://github.com/Anusha-raju/Utopia.git">Utopia-github</a></li>
+    </ul>
+    <h2>Python Libraries Used <a name="pythonlibs"></a></h2>
+    <ul>
+        <li>numpy</li>
+        <li>pandas</li>
+        <li>matplotlib, pyplot</li>
+        <li>seaborn</li>
+        <li>scipy, stats</li>
+        <li>statsmodels</li>
+    </ul>
+</div>
+
+</body>
+</html>

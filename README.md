@@ -1,7 +1,7 @@
 # Fairness in Focus: A tale of two worlds
 Author: [Anusha Umashankar](https://github.com/Anusha-raju)
 
-Created on : October 23rd, 2024
+Created on : October 24th, 2024
 
 # Contents
 1. [Objective](#objective)
@@ -20,7 +20,7 @@ Created on : October 23rd, 2024
 	2. [Interpretation on World2](#interpretationonWorld2)
 
 5. [Final thoughts](#Finalthoughts)
-6. [Additional Links](#additionallinks)
+6. [Project Resources](#projectresources)
 7. [Python Libraries Used](#pythonlibs)
 
 #
@@ -466,7 +466,7 @@ Hence I fail to infer that the world2 is unfair and hence can suggest that world
 
 
 
-## Additional Links <a name="additionallinks"></a>
+## Project Resources <a name="projectresources"></a>
 1. The code is in [Utopia.py](https://github.com/Anusha-raju/Utopia/blob/main/midterm_Utopia.py)
 2. The world1 data is in [World1.csv](https://github.com/Anusha-raju/Utopia/blob/main/world1.csv)
 3. The world2 data is in [World2.csv](https://github.com/Anusha-raju/Utopia/blob/main/world2.csv)
