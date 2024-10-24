@@ -13,8 +13,18 @@ Created on : October 23rd, 2024
 		1. [Data Profiling](#dataprofiling)
 		2. [Data Visualization & Hypothesis testing](#datavisualization)
 	2. [Interpretation on World1](#interpretationonWorld1)
+4. [WORLD2](#world2)
+	1.  [EDA on World2](#edaonworld2)
+		1. [Data Profiling](#dataprofiling2)
+		2. [Data Visualization & Hypothesis testing](#datavisualization2)
+	2. [Interpretation on World2](#interpretationonWorld2)
+
+5. [Final thoughts](#Finalthoughts)
+6. [Additional Links](#additionallinks)
 
 #
+
+
 
 ## Objective <a name="objective"></a>
 To analyse if the two worlds are fair, or close to a utopia.
@@ -260,5 +270,200 @@ Alternate hypothesis: The variables gender and education are not independent
 
 3. The plot average income by industry and gender also suggests potential biases influencing gender representation in various industries.
 
+
+
+
+
+## WORLD2 <a name="world2"></a>
+
+### EDA on World2 <a name="edaonworld2"></a>
+
+#### Data Profiling <a name="dataprofiling2"></a>
+World2 dataset
+
+![world2.head()](https://github.com/Anusha-raju/Utopia/blob/main/images/world2-head.png)
+
+
+
+The above image shows the first five records in World2.
+
+The World2 dataset has no missing values and the dimensions are 24000 rows across 7 columns.
+
+![world2.describe()](https://github.com/Anusha-raju/Utopia/blob/main/images/world2%20missing%20values.png)
+
+**Summary of qualitative variables of world2**
+
+![Summary of qualitative variables of world2](https://github.com/Anusha-raju/Utopia/blob/main/images/categorical%20summary%2021.png)
+
+
+![Summary of qualitative variables of world2](https://github.com/Anusha-raju/Utopia/blob/main/images/categorical%20summary%2022.png)
+
+
+
+**Summary of quantitative variables of world2**
+
+![Summary of quantitative of world2](https://github.com/Anusha-raju/Utopia/blob/main/images/world2%20quantitaive%20summary.png)
+
+**Remarks: Since the median is less than the mean for income in world2 it indicates that the data distribution is skewed to the right (positively skewed).**
+
+### Data Visualization & Hypothesis testing  <a name="datavisualization2"></a>
+
+
+#### Plot: Income distribution in world2
+
+![Income in world2](https://github.com/Anusha-raju/Utopia/blob/main/images/world2%20income.png)
+
+**Observation: As remarked, the distribution of income for world2 is *right* skewed**
+
+
+
+#### Plot: Distribution of years of education in world2
+
+
+![education distribution image](https://github.com/Anusha-raju/Utopia/blob/main/images/education%20world2.png)
+
+
+- The shape of the distribution of education for world2 is Multimodal distribution.
+
+
+
+
+#### Plot: Correlation matrix to identify the interdependency among the variables in world2.
+
+
+![correlation matrix world2](https://github.com/Anusha-raju/Utopia/blob/main/images/correlation%20matrix%20world2.png)
+
+
+**Observations:**
+- A strong positive correlation exists between income and industry.
+
+
+
+
+#### Plot: Average income by industry and gender for world2.
+
+
+![Average income by industry and gender](https://github.com/Anusha-raju/Utopia/blob/main/images/average%20income%20by%20industry%20and%20gender(world2).png)
+
+
+**Remark:** <br>
+- There are significant differences in income based on industry in world2.
+
+
+
+#### **ANOVA** test to check if there is difference in income based on industry in world2.
+Using a significance level of 0.05.
+
+Stating the Hypothesis:
+Null hypothesis: There is no difference in income based on industry.
+Alternate hypothesis: There is difference in income based on industry.
+
+
+The obtained test results are -> F-statistic: 18810.332110998344, P-value: 0.0
+
+
+***Conclusion:* Since the p-value is much less than the significance level of 0.05, we have evidence to reject the null hypothesis. This suggests that there is difference in income based on industry in world2.**
+
+
+
+#### Plot: Average income by ethnic in world2
+
+
+![Average income by ethnic](https://github.com/Anusha-raju/Utopia/blob/main/images/Average%20income%20by%20ethnic%20world2.png)
+
+
+
+***Remark:* There seems to be no significant difference in income based on ethnicity.**
+
+
+
+
+#### **ANOVA** test to check if there is difference in income based on ethnic in world2.
+
+Using a significance level of 0.05.
+
+
+Stating the Hypothesis:
+Null hypothesis: There is no difference in income based on ethnic category.
+Alternate hypothesis: There is difference in income based on ethnic category.
+
+
+The obtained test results are ->  F-statistic: 0.3428483735431711, P-value: 0.7097492961501475
+
+
+***Conclusion:* Since the p-value is significantly high than the alpha value of 0.05, we fail to reject the null hypothesis. This suggests that there is no difference in income based on ethnicity in world2.**
+
+
+
+#### **Examined the differences in years of education by gender in world2.**
+
+
+**Chi-squared test between gender and education in world2.**
+Using a significance level of 0.05.
+
+
+Stating the Hypothesis:
+Null hypothesis: The variables gender and education are independent
+Alternate hypothesis: The variables gender and education are not independent
+
+
+
+
+![Chi-squared test](https://github.com/Anusha-raju/Utopia/blob/main/images/chi%20square%20world2.png)
+
+
+***Conclusion:* Since the p-value is greater than the significance level of 0.05, we fail to reject the null hypothesis. This suggests that there is not enough evidence to conclude that gender has an effect on education levels in world2.**
+
+
+
+
+## Interpretation on World2: <a name="interpretationonWorld2"></a>
+
+
+1. Since the income histogram is right skewed, it indicates that a small number of individuals earn significantly more than the rest.
+2. The plots and ANOVA tests suggest that the annual income does not depend on gender and ethnicity in world2, indicating systemic equality.
+3. The plots also suggest that there is difference in income based on industry.
+
+
+
+## Final thoughts <a name="Finalthoughts"></a>
+# 
+<br>A realistic utopia as quoted by [isocracy.org](https://isocracy.org/content/three-visions-realist-utopia) are models for a Great Society, and any realist utopian model will share three essential characteristics.
+
+
+The basic structure is : 
+1. entail liberal democracy or a republican form of government, in which people have a say in the matters that affect their lives
+2. guard against the extremes of inequality so that concentrations of wealth cannot be used to exploit the less wealthy or to buy politicians
+3. ensure that everyone has access to the necessities of life such as food, shelter, healthcare, etc.
+<br><br>
+
+
+
+
+
+In both the worlds<br>
+ - The variables defining Demographics are Age, gender, marital status and ethnicity<br>
+ - The variables defining Socioeconomic status are Education, income and industry<br><br>
+
+
+Based on the interpretations on world1, there is an inequality in income and their is a potential bias influencing the gender representations in various industries and a difference in income based on ethnicity and gender which suggests that the ***world1 is not fair*** on both Demographics and Socioeconomic status and is not close to a utopia.<br>
+<br>The analysis of world2 indicates that income is skewed due to variations across industries, while gender and ethnicity do not appear to influence annual income.
+
+
+ 
+In my view, different income levels across industries can still align with a utopian model due to the following reasons:
+- Value-Based Income: In a utopia, income could be based on the value and societal contribution of different industries.
+- Equity Over Equality: A utopian model might emphasize equity rather than strict equality. 
+
+
+Hence I fail to infer that the world2 is unfair and hence can suggest that world2 is close to a utopia.
+
+
+
+## Additional Links <a name="additionallinks"></a>
+1. The code is in [Utopia.py](https://github.com/Anusha-raju/Utopia/blob/main/midterm_Utopia.py)
+2. The world1 data is in [World1.csv](https://github.com/Anusha-raju/Utopia/blob/main/world1.csv)
+3. The world2 data is in [World2.csv](https://github.com/Anusha-raju/Utopia/blob/main/world2.csv)
+4. The project link is [Utopia-github](https://github.com/Anusha-raju/Utopia.git)
 
 
