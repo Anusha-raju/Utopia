@@ -1,5 +1,6 @@
 # Fairness in Focus: A tale of two worlds
 Author: [Anusha Umashankar](https://github.com/Anusha-raju)
+
 Created on : October 23rd, 2024
 
 # Contents
@@ -114,7 +115,7 @@ The World1 dataset has no missing values and the dimensions are 24000 rows acros
 
 - There seems to be no significant influence of education on income in world1.
 
-The Correlation coefficient between education and income in world1: -5.1988070239674995e-05 which implies that there isn't significant correlation between education and income in world1.
+- The Correlation coefficient between education and income in world1: -5.1988070239674995e-05 ,which also implies that there isn't significant correlation between education and income in world1.
 
 
 
@@ -216,7 +217,7 @@ The obtained test results are ->F-statistic: 1125.691934385774, P-value: 0.0
 
 ***Conclusion:* Since the p-value is significantly less than the alpha value of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on ethnicity in world1.**
 
-** Post hoc tests**
+**Post hoc tests**
 - Performed Tukey's HSD test
 
 
