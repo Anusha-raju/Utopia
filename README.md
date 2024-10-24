@@ -1,4 +1,4 @@
-# Fairness in Focus: A tale of two worlds
+# [Fairness in Focus: A tale of two worlds](https://anusha-raju.github.io/Utopia/)
 Author: [Anusha Umashankar](https://github.com/Anusha-raju)
 
 Created on : October 24th, 2024

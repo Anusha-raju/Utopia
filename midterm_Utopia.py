@@ -14,6 +14,10 @@ world2 = pd.read_csv("world2.csv", index_col="id") # reading world2 csv
 
 print("\nReady to continue.")
 
+#%%[markdown]
+
+# Project website: [UTOPIA](https://anusha-raju.github.io/Utopia/)
+# Project Git: [utopia.git](https://github.com/Anusha-raju/Utopia.git)
 
 #%%[markdown]
 # # Two Worlds 
