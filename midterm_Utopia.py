@@ -250,6 +250,7 @@ print(f'F-statistic: {f_statistic}, P-value: {p_value}')
 
 # ***Conclusion:* Since the p-value is significantly less than the alpha value of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on ethnicity in world1.**
 
+#
 # Following up with a post hoc tests
 
 #%%
@@ -429,6 +430,7 @@ f_statistic, p_value = stats.f_oneway(*groups)
 print(f'F-statistic: {f_statistic}, P-value: {p_value}')
 
 #%%[markdown]
+
 
 # ***Conclusion:* Since the p-value is significantly high than the alpha value of 0.05, we fail to reject the null hypothesis. This suggests that there is no difference in income based on ethnicity in world2.**
 

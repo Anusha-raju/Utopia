@@ -21,6 +21,7 @@ Created on : October 23rd, 2024
 
 5. [Final thoughts](#Finalthoughts)
 6. [Additional Links](#additionallinks)
+7. [Python Libraries Used](#pythonlibs)
 
 #
 
@@ -174,13 +175,13 @@ The World1 dataset has no missing values and the dimensions are 24000 rows acros
 
 
 #### **ANOVA** test to check if there is difference in income based on gender in world1.
-Using a significance level of 0.05.
+Using a significance level of 0.05.<br><br>
 
-Stating the Hypothesis:
-Null hypothesis: There is no difference in income based on gender.
-Alternate hypothesis: There is difference in income based on gender.
+Stating the Hypothesis:<br>
+Null hypothesis: There is no difference in income based on gender.<br>
+Alternate hypothesis: There is difference in income based on gender.<br><br>
 
-The obtained test results are -> F-statistic: 923.1415737034732, P-value: 5.355760965843564e-199
+The obtained test results are -> F-statistic: 923.1415737034732, P-value: 5.355760965843564e-199<br><br>
 
 ***Conclusion:* Since the p-value is much less than the significance level of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on gender in world1.**
 
@@ -189,13 +190,13 @@ The obtained test results are -> F-statistic: 923.1415737034732, P-value: 5.3557
 
 
 #### **ANOVA** test to check if there is difference in income based on industry in world1.
-Using a significance level of 0.05.
+Using a significance level of 0.05.<br><br>
 
-Stating the Hypothesis:
-Null hypothesis: There is no difference in income based on industry.
-Alternate hypothesis: There is difference in income based on industry.
+Stating the Hypothesis:<br>
+Null hypothesis: There is no difference in income based on industry.<br>
+Alternate hypothesis: There is difference in income based on industry.<br><br>
 
-The obtained test results are -> F-statistic: 19091.648128224577, P-value: 0.0
+The obtained test results are -> F-statistic: 19091.648128224577, P-value: 0.0<br><br>
 
 ***Conclusion:* Since the p-value is much less than the significance level of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on industry in world1.**
 
@@ -217,24 +218,27 @@ The obtained test results are -> F-statistic: 19091.648128224577, P-value: 0.0
 
 
 #### **ANOVA** test to check if there is difference in income based on ethnic in world1.
-Using a significance level of 0.05.
+Using a significance level of 0.05.<br><br>
 
-Stating the Hypothesis:
-Null hypothesis: There is no difference in income based on ethnic category.
-Alternate hypothesis: There is difference in income based on ethnic category.
+Stating the Hypothesis:<br>
+Null hypothesis: There is no difference in income based on ethnic category.<br>
+Alternate hypothesis: There is difference in income based on ethnic category.<br><br>
 
 The obtained test results are ->F-statistic: 1125.691934385774, P-value: 0.0
-
+<br><br>
 ***Conclusion:* Since the p-value is significantly less than the alpha value of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on ethnicity in world1.**
+<br><br><br>
 
-**Post hoc tests**
-- Performed Tukey's HSD test
+
+
+**Post hoc tests**<br>
+- Performed Tukey's HSD test<br><br>
 
 
 
 ![Tukey's HSD test world1](https://github.com/Anusha-raju/Utopia/blob/main/images/tuskey%20result%20world1.png)
 
-
+<br><br>
 
 **In summary, all comparisons show significant differences in mean income between the ethnic groups analyzed, indicating that ethnicity does have an impact on income in world1.**
 
@@ -243,13 +247,13 @@ The obtained test results are ->F-statistic: 1125.691934385774, P-value: 0.0
 
 #### **Examined the differences in years of education by gender in world1.**
 
-**Chi-squared test between gender and education in world1.**
+**Chi-squared test between gender and education in world1.**<br>
 
-Using a significance level of 0.05.
+Using a significance level of 0.05.<br><br>
 
-Stating the Hypothesis:
-Null hypothesis: The variables gender and education are independent
-Alternate hypothesis: The variables gender and education are not independent
+Stating the Hypothesis:<br>
+Null hypothesis: The variables gender and education are independent<br>
+Alternate hypothesis: The variables gender and education are not independent<br><br>
 
 
 
@@ -352,14 +356,16 @@ The World2 dataset has no missing values and the dimensions are 24000 rows acros
 
 
 #### **ANOVA** test to check if there is difference in income based on industry in world2.
-Using a significance level of 0.05.
-
-Stating the Hypothesis:
-Null hypothesis: There is no difference in income based on industry.
-Alternate hypothesis: There is difference in income based on industry.
 
 
-The obtained test results are -> F-statistic: 18810.332110998344, P-value: 0.0
+Using a significance level of 0.05.<br><br>
+
+Stating the Hypothesis:<br>
+Null hypothesis: There is no difference in income based on industry.<br>
+Alternate hypothesis: There is difference in income based on industry.<br><br>
+
+
+The obtained test results are -> F-statistic: 18810.332110998344, P-value: 0.0<br><br>
 
 
 ***Conclusion:* Since the p-value is much less than the significance level of 0.05, we have evidence to reject the null hypothesis. This suggests that there is difference in income based on industry in world2.**
@@ -380,15 +386,15 @@ The obtained test results are -> F-statistic: 18810.332110998344, P-value: 0.0
 
 #### **ANOVA** test to check if there is difference in income based on ethnic in world2.
 
-Using a significance level of 0.05.
+Using a significance level of 0.05.<br><br>
 
 
-Stating the Hypothesis:
-Null hypothesis: There is no difference in income based on ethnic category.
-Alternate hypothesis: There is difference in income based on ethnic category.
+Stating the Hypothesis:<br>
+Null hypothesis: There is no difference in income based on ethnic category.<br>
+Alternate hypothesis: There is difference in income based on ethnic category.<br><br>
 
 
-The obtained test results are ->  F-statistic: 0.3428483735431711, P-value: 0.7097492961501475
+The obtained test results are ->  F-statistic: 0.3428483735431711, P-value: 0.7097492961501475<br><br>
 
 
 ***Conclusion:* Since the p-value is significantly high than the alpha value of 0.05, we fail to reject the null hypothesis. This suggests that there is no difference in income based on ethnicity in world2.**
@@ -398,13 +404,13 @@ The obtained test results are ->  F-statistic: 0.3428483735431711, P-value: 0.70
 #### **Examined the differences in years of education by gender in world2.**
 
 
-**Chi-squared test between gender and education in world2.**
-Using a significance level of 0.05.
+**Chi-squared test between gender and education in world2.**<br><br>
+Using a significance level of 0.05.<br><br>
 
 
-Stating the Hypothesis:
-Null hypothesis: The variables gender and education are independent
-Alternate hypothesis: The variables gender and education are not independent
+Stating the Hypothesis:<br>
+Null hypothesis: The variables gender and education are independent<br>
+Alternate hypothesis: The variables gender and education are not independent<br><br>
 
 
 
@@ -465,5 +471,15 @@ Hence I fail to infer that the world2 is unfair and hence can suggest that world
 2. The world1 data is in [World1.csv](https://github.com/Anusha-raju/Utopia/blob/main/world1.csv)
 3. The world2 data is in [World2.csv](https://github.com/Anusha-raju/Utopia/blob/main/world2.csv)
 4. The project link is [Utopia-github](https://github.com/Anusha-raju/Utopia.git)
+
+
+## Python Libraries Used <a name="pythonlibs"></a>
+
+* numpy
+* pandas
+* matplotlib, pyplot
+* seaborn
+* scipy, stats
+* statsmodels
 
 
