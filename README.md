@@ -24,9 +24,9 @@ Created on : October 23rd, 2024
 
 #
 
+![Utopia](https://github.com/Anusha-raju/Utopia/blob/main/images/utopia.jpg)
 
-
-## Objective <a name="objective"></a>
+### Objective <a name="objective"></a>
 To analyse if the two worlds are fair, or close to a utopia.
 
 ## Data <a name="data"></a>
