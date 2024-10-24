@@ -60,11 +60,6 @@ The World1 dataset has no missing values and the dimensions are 24000 rows acros
 
 
 
-**Summary of quantitative variables of world1**
-
-![Summary of quantitative of world1](https://github.com/Anusha-raju/Utopia/blob/main/images/world1%20quantitaive%20summary.png)
-
-
 
 **Summary of qualitative variables of world1**
 
@@ -75,10 +70,19 @@ The World1 dataset has no missing values and the dimensions are 24000 rows acros
 
 
 
+**Summary of quantitative variables of world1**
+
+![Summary of quantitative of world1](https://github.com/Anusha-raju/Utopia/blob/main/images/world1%20quantitaive%20summary.png)
+
+
+
+
 **Remarks: Since the median is less than the mean for income in world1, it indicates that the data distribution is skewed to the right (positively skewed).**
 
-#### Data Visualization & Hypothesis testing  <a name="datavisualization"></a>
-##### Plot: Income distribution in world1
+### Data Visualization & Hypothesis testing  <a name="datavisualization"></a>
+
+
+#### Plot: Income distribution in world1
 
 
 ![Income in world1](https://github.com/Anusha-raju/Utopia/blob/main/images/world1%20income.png)
@@ -87,7 +91,9 @@ The World1 dataset has no missing values and the dimensions are 24000 rows acros
 
 **Observation: As remarked, the distribution of income for world1 is *right* skewed**
 
-##### Plot: Distribution of years of education in world1
+
+
+#### Plot: Distribution of years of education in world1
 
 
 ![education distribution image](https://github.com/Anusha-raju/Utopia/blob/main/images/world1%20education.png)
@@ -96,7 +102,10 @@ The World1 dataset has no missing values and the dimensions are 24000 rows acros
 
 - The shape of the distribution of education for world1 is Multimodal distribution.
 
-##### Plot: Relationship Between Income and Education Levels in world1
+
+
+
+#### Plot: Relationship Between Income and Education Levels in world1
 
 
 ![Income and Education Levels in world1](https://github.com/Anusha-raju/Utopia/blob/main/images/income%20education%20world1.png)
@@ -107,20 +116,26 @@ The World1 dataset has no missing values and the dimensions are 24000 rows acros
 
 The Correlation coefficient between education and income in world1: -5.1988070239674995e-05 which implies that there isn't significant correlation between education and income in world1.
 
-##### Plot: Relationship Between Income and Marital status in world1
+
+
+
+#### Plot: Relationship Between Income and Marital status in world1
 
 ![income and marital status world1](https://github.com/Anusha-raju/Utopia/blob/main/images/income%20marital%20status%20world1.png)
 
 **Seems to be like there is no significant difference in average income among the different marital groups in world1.**
 
-##### Plot: Correlation matrix to identify the interdependency among the variables in world1.
+
+
+
+#### Plot: Correlation matrix to identify the interdependency among the variables in world1.
 
 
 ![correlation matrix world1](https://github.com/Anusha-raju/Utopia/blob/main/images/correlation%20matrix%20world1.png)
 
 
 
-** Observations:**
+**Observations:**
 
 1. A strong positive correlation exists between income and industry.
 
@@ -128,7 +143,10 @@ The Correlation coefficient between education and income in world1: -5.198807023
 
 3. There is a correlation between industry and ethnic and industry and gender.
 
-##### Plot: Average income by industry and gender in world1
+
+
+
+#### Plot: Average income by industry and gender in world1
 
 ![Average income by industry and gender in world1](https://github.com/Anusha-raju/Utopia/blob/main/images/income%20industry%20gender%20world1.png)
 
@@ -140,7 +158,11 @@ The Correlation coefficient between education and income in world1: -5.198807023
 2. The distribution of genders across different industries is unequal in world1, indicating that certain industries have a higher representation of one gender over the other. This disparity suggests potential biases or systemic factors influencing gender representation in various fields in world1.
 
 
-##### **ANOVA** test to check if there is difference in income based on gender in world1.
+
+
+
+
+#### **ANOVA** test to check if there is difference in income based on gender in world1.
 Using a significance level of 0.05.
 
 Stating the Hypothesis:
@@ -151,7 +173,11 @@ The obtained test results are -> F-statistic: 923.1415737034732, P-value: 5.3557
 
 ***Conclusion:* Since the p-value is much less than the significance level of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on gender in world1.**
 
-##### **ANOVA** test to check if there is difference in income based on industry in world1.
+
+
+
+
+#### **ANOVA** test to check if there is difference in income based on industry in world1.
 Using a significance level of 0.05.
 
 Stating the Hypothesis:
@@ -163,7 +189,10 @@ The obtained test results are -> F-statistic: 19091.648128224577, P-value: 0.0
 ***Conclusion:* Since the p-value is much less than the significance level of 0.05, we can reject the null hypothesis. This suggests that there is difference in income based on industry in world1.**
 
 
-##### Plot:  Average income by ethnic in world1
+
+
+
+#### Plot:  Average income by ethnic in world1
 
 
 ![Average income by ethnic in world1](https://github.com/Anusha-raju/Utopia/blob/main/images/income%20by%20ethnicity%20world1.png)
@@ -173,7 +202,10 @@ The obtained test results are -> F-statistic: 19091.648128224577, P-value: 0.0
 ***Remark:* There seems to be difference in income based on ethnicity in world1.**
 
 
-##### **ANOVA** test to check if there is difference in income based on ethnic in world1.
+
+
+
+#### **ANOVA** test to check if there is difference in income based on ethnic in world1.
 Using a significance level of 0.05.
 
 Stating the Hypothesis:
@@ -195,7 +227,10 @@ The obtained test results are ->F-statistic: 1125.691934385774, P-value: 0.0
 
 **In summary, all comparisons show significant differences in mean income between the ethnic groups analyzed, indicating that ethnicity does have an impact on income in world1.**
 
-##### **Examined the differences in years of education by gender in world1.**
+
+
+
+#### **Examined the differences in years of education by gender in world1.**
 
 **Chi-squared test between gender and education in world1.**
 
@@ -212,7 +247,9 @@ Alternate hypothesis: The variables gender and education are not independent
 
 
 
-***Conclusion:* Since the p-value is greater than the significance level of 0.05, we fail to reject the null hypothesis. This suggests that there is not enough evidence to conclude that gender has an effect on education levels in world1,meaning that any observed differences in education levels between genders in world1 could likely be due to random chance rather than a systematic relationship.
+***Conclusion:* Since the p-value is greater than the significance level of 0.05, we fail to reject the null hypothesis. This suggests that there is not enough evidence to conclude that gender has an effect on education levels in world1,meaning that any observed differences in education levels between genders in world1 could likely be due to random chance rather than a systematic relationship.**
+
+
 
 ## Interpretation on World1: <a name="interpretationonWorld1"></a>
 
